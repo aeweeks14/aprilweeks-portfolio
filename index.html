@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>April Weeks | Education Professional Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #003366;          /* deep ADE-style blue */
+      --primary-light: #005ea2;    /* lighter link blue */
+      --bg: #f3f4f6;               /* light gray page background */
+      --card: #ffffff;             /* white panels */
+      --text-main: #111827;        /* dark text */
+      --text-muted: #4b5563;       /* muted text */
+      --border: #d1d5db;           /* light border */
+      --chip-bg: #e5edf7;          /* soft blue chip background */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 2rem 1.25rem 2.75rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-text h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-text p {
+      font-size: 0.95rem;
+      max-width: 620px;
+      opacity: 0.95;
+    }
+
+    .hero-meta {
+      text-align: right;
+      font-size: 0.88rem;
+      opacity: 0.95;
+    }
+
+    .hero-meta a {
+      color: #e5e7eb;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      padding-top: 0.75rem;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      list-style: none;
+    }
+
+    nav a {
+      padding: 0.3rem 0.4rem;
+      font-size: 0.85rem;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      border-bottom-color: #e5e7eb;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 2rem 1.25rem 3rem;
+      margin-top: -1.5rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 4px;
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 1.25rem;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .chip {
+      background: var(--chip-bg);
+      border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border: 1px solid #cbd5e1;
+    }
+
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .artifact-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .artifact-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .artifact-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .artifact-links {
+      margin-top: 0.35rem;
+      font-size: 0.85rem;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    ul {
+      padding-left: 1.1rem;
+    }
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight-list li {
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+    }
+
+    .pill-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary-light);
+      margin-bottom: 0.25rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid var(--primary-light);
+    }
+
+    footer {
+      padding: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+
+    @media (max-width: 768px) {
+      .hero-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-meta {
+        text-align: left;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero-top">
+      <div class="hero-text">
+        <h1>April Weeks</h1>
+        <h2>Learning Specialist · Assessment & Intervention · K–4</h2>
+        <p>
+          I am a learning specialist with strong experience in assessment,
+          data analysis, and targeted intervention. I’m passionate about
+          making data meaningful and actionable for teachers and students
+          and building systems that help every student get exactly
+          <strong>“what I need”</strong> support.
+        </p>
+      </div>
+      <div class="hero-meta">
+        <div>Cabot, Arkansas</div>
+        <div><a href="mailto:aeweeks14@gmail.com">aeweeks14@gmail.com</a></div>
+        <div>501-628-1789</div>
+      </div>
+    </div>
+
+    <nav class="container">
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#assessment">Assessment & ATLAS</a></li>
+        <li><a href="#intervention">WIN Time & Interventions</a></li>
+        <li><a href="#systems">504, FBAs & Behavior Systems</a></li>
+        <li><a href="#pd">Coaching & Professional Development</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- OVERVIEW -->
+    <section id="overview">
+      <div class="card two-col">
+        <div>
+          <div class="pill-heading">Overview</div>
+          <h2 class="section-title">Professional Snapshot</h2>
+          <p class="tagline">
+            This portfolio highlights my work in assessment coordination,
+            building-wide intervention systems, and data-informed decision
+            making as a Learning Specialist and Building Testing Coordinator.
+          </p>
+          <ul class="highlight-list" style="margin-top: 0.75rem;">
+            <li>
+              Lead building-level assessment operations, including ATLAS
+              administration, test security, accommodations, and TIDE preparation.
+            </li>
+            <li>
+              Coordinate WIN (<em>What I Need</em>) intervention time for all K–4
+              students, ensuring IRP and MIP compliance.
+            </li>
+            <li>
+              Provide Tier 2 and Tier 3 intervention coordination, data analysis,
+              and coaching for teachers.
+            </li>
+            <li>
+              Serve as Building 504 Coordinator and support behavior systems
+              through FBAs and BIPs.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="pill-heading">Focus Areas</div>
+          <div class="chip-row">
+            <span class="chip">ATLAS & TIDE</span>
+            <span class="chip">Assessment Implementation</span>
+            <span class="chip">Data Analysis</span>
+            <span class="chip">Multi-Tiered Intervention</span>
+            <span class="chip">504 Coordination</span>
+            <span class="chip">Behavior Support</span>
+            <span class="chip">Teacher Coaching</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSESSMENT & ATLAS -->
+    <section id="assessment">
+      <div class="card">
+        <div class="pill-heading">Assessment & ATLAS</div>
+        <h2 class="section-title">Building Testing Coordination & ATLAS Leadership</h2>
+        <p class="tagline">
+          As Building Testing Coordinator, I organize all ATLAS K–4 assessments,
+          train staff, maintain accommodations, and ensure secure, smooth testing
+          experiences for students and teachers.
+        </p>
+
+        <div class="artifact-grid">
+          <div class="artifact-card">
+            <h3>ATLAS Testing Calendar & Task Checklist</h3>
+            <p>
+              A structured calendar and task list used to organize testing windows,
+              training dates, make-ups, and deadlines for all K–4 ATLAS assessments.
+            </p>
+            <div class="artifact-meta">
+              <strong>Skills:</strong> long-range planning, communication, organization
+            </div>
+            <div class="artifact-links">
+              <!-- Replace # with your actual link to the calendar/checklist -->
+              <a href="#" target="_blank">View ATLAS Testing Calendar (PDF)</a>
+            </div>
+          </div>
+
+          <div class="artifact-card">
+            <h3>Staff Training & Test Security Materials</h3>
+            <p>
+              Slide deck and handouts used to train teachers on ATLAS administration,
+              test security expectations, and procedures for accommodations and
+              irregularities.
+            </p>
+            <div class="artifact-meta">
+              <strong>Skills:</strong> training design, policy communication, leadership
+            </div>
+            <div class="artifact-links">
+              <!-- Replace # with link to your training slides/handout -->
+              <a href="#" target="_blank">View Training Slides</a><br />
+              <a href="#" target="_blank">View Test Security Handout</a>
+            </div>
+          </div>
+
+          <div class="artifact-card">
+            <h3>Accommodations & TIDE Preparation Checklist</h3>
+            <p>
+              A checklist used to verify student accommodations, update TIDE, and
+              confirm that each student’s testing session matches their documented needs.
+            </p>
+            <div class="artifact-meta">
+              <strong>Skills:</strong> compliance, documentation, attention to detail
+            </div>
+            <div class="artifact-links">
+              <!-- Replace # with link to your accommodations sheet/checklist -->
+              <a href="#" target="_blank">View Accommodations Checklist</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERVENTION & WIN TIME -->
+    <section id="intervention">
+      <div class="card">
+        <div class="pill-heading">Intervention Systems</div>
+        <h2 class="section-title">WIN Time: Building-Wide Intervention Coordination</h2>
+        <p class="tagline">
+          WIN (<em>What I Need</em>) time is our daily intervention block. I coordinate
+          student placements, monitor progress, and ensure that every student with an IRP
+          or MIP receives the support they need.
+        </p>
+
+        <div class="artifact-grid">
+<div class="artifact-card">
+  <h3>WIN Time Master Placement Sheet</h3>
+  <p>
+    This Google Sheet tracks intervention placements for all students during
+    WIN time. It ensures that students with IRPs are scheduled appropriately
+    and that every student has a purposeful placement.
+  </p>
+  <div class="artifact-meta">
+    <strong>Skills:</strong> systems design, scheduling, organization
+  </div>
+  <div class="artifact-links">
+    <a href="https://docs.google.com/spreadsheets/d/1MGKVjn5QAhfSJeeyOnjqVDGg6pyK1O3-lXHcOcfDU7o/edit?usp=sharing" target="_blank">
+      View WIN Placement Sheet (Google Sheet)
+    </a>
+  </div>
+</div>
+
+
+          <div class="artifact-card">
+            <h3>ATLAS Goal Tracking & Progress Monitoring</h3>
+            <p>
+              Teachers document individual goals in ATLAS. Every two weeks, we enter
+              progress data, then review monthly to adjust goals, placements, or
+              intervention intensity as needed.
+            </p>
+            <div class="artifact-meta">
+              <strong>Skills:</strong> data analysis, instructional decision-making
+            </div>
+            <div class="artifact-links">
+              <!-- Replace # with link to a sample data tracking view -->
+              <a href="#" target="_blank">View Progress Monitoring Example</a>
+            </div>
+          </div>
+
+          <div class="artifact-card">
+            <h3>IRP/MIP Compliance Tracking</h3>
+            <p>
+              A tracking tool that cross-checks students’ IRPs/MIPs with their
+              WIN placements to ensure alignment between documented needs and
+              provided services.
+            </p>
+            <div class="artifact-meta">
+              <strong>Skills:</strong> compliance, documentation, equity of services
+            </div>
+            <div class="artifact-links">
+              <!-- Replace # with link to IRP/MIP tracking sheet or summary -->
+              <a href="#" target="_blank">View IRP/MIP Tracking Tool</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEMS: 504, FBA, BIP -->
+    <section id="systems">
+      <div class="card">
+        <div class="pill-heading">Student Support Systems</div>
+        <h2 class="section-title">504 Coordination, FBAs & Behavior Support</h2>
+        <p class="tagline">
+          In addition to academic supports, I coordinate 504 plans and support building
+          administrators through Functional Behavior Assessments and Behavior Intervention
+          Plans for qualifying students.
+        </p>
+
+        <div class="artifact-grid">
+          <div class="artifact-card">
+            <h3>504 Plan Meeting Templates & Documentation</h3>
+            <p>
+              Templates and notes used to guide 504 meetings, document accommodations,
+              and support teachers in implementing plans with fidelity.
+            </p>
+            <div class="artifact-meta">
+              <strong>Skills:</strong> documentation, family communication, compliance
+            </div>
+            <div class="artifact-links">
+              <!-- Replace # with link to sample (anonymized) 504 docs -->
+              <a href="#" target="_blank">View 504 Meeting Template</a>
+            </div>
+          </div>
+
+          <div class="artifact-card">
+            <h3>Functional Behavior Assessment (FBA) & BIP Tools</h3>
+            <p>
+              Forms and examples used to conduct FBAs, summarize findings, and create
+              Behavior Intervention Plans that are practical for teachers to implement.
+            </p>
+            <div class="artifact-meta">
+              <strong>Skills:</strong> data collection, analysis, behavior planning
+            </div>
+            <div class="artifact-links">
+              <!-- Replace # with link to FBA/BIP examples (anonymized) -->
+              <a href="#" target="_blank">View FBA/BIP Samples</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PD & COACHING -->
+    <section id="pd">
+      <div class="card">
+        <div class="pill-heading">Coaching & Professional Learning</div>
+        <h2 class="section-title">Teacher Support, Math Coaching & Professional Development</h2>
+        <p class="tagline">
+          I support Tier 1 instruction by coaching teachers, leading professional
+          development, and collaborating regularly in grade-level planning.
+        </p>
+
+        <div class="artifact-grid">
+          <div class="artifact-card">
+            <h3>Illustrative Mathematics Coaching & PD</h3>
+            <p>
+              Materials used to support teachers in implementing Illustrative Mathematics,
+              including PD agendas, sample tasks, and planning tools.
+            </p>
+            <div class="artifact-meta">
+              <strong>Skills:</strong> instructional coaching, curriculum support, facilitation
+            </div>
+            <div class="artifact-links">
+              <!-- Replace # with link to IM PD slides or docs -->
+              <a href="#" target="_blank">View IM PD Materials</a>
+            </div>
+          </div>
+
+          <div class="artifact-card">
+            <h3>Data Conversations & Grade-Level Planning Tools</h3>
+            <p>
+              Protocols and planning sheets used during weekly grade-level meetings
+              to analyze MAP, ATLAS, and classroom data and plan next steps.
+            </p>
+            <div class="artifact-meta">
+              <strong>Skills:</strong> collaboration, data facilitation, planning
+            </div>
+            <div class="artifact-links">
+              <!-- Replace # with link to planning/data conversation tools -->
+              <a href="#" target="_blank">View Planning Templates</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> April Weeks · Portfolio for Education Professional I
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
